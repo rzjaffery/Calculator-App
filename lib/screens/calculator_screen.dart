@@ -54,18 +54,14 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       }
 
       if (buttonText == "=") {
-        _resetAfterEqual();
+        result = _evaluateExpression(input);
+        input = result;
         return;
       }
 
       input += buttonText;
       result = input;
     });
-  }
-
-  void _resetAfterEqual() {
-    input = "";
-    result = "0";
   }
 
   String _evaluateExpression(String expression) {
